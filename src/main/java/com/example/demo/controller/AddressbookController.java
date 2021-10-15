@@ -1,5 +1,9 @@
 package com.example.demo.controller;
 
-public class AddressbookController {
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+public class AddressbookController {
+	
+	
 }
