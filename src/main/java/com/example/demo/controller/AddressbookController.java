@@ -11,9 +11,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.dto.ResponseDTO;
 import com.example.demo.entities.Contact;
 import com.example.demo.service.AddressbookService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 public class AddressbookController {
 	
@@ -21,32 +25,37 @@ public class AddressbookController {
 	AddressbookService addressbookService;
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<String> getById( @PathVariable("id") int id ){
+	public ResponseEntity<ResponseDTO> getById( @PathVariable("id") int id ){
 		
-		return new ResponseEntity<String>(HttpStatus.OK);
+		log.info("In GetBYId");
+		return new ResponseEntity<ResponseDTO>(HttpStatus.OK);
 	}
 	
 	@GetMapping("/")
-	public ResponseEntity<String> getAll(){
+	public ResponseEntity<ResponseDTO> getAll(){
 		
-		return new ResponseEntity<String>(HttpStatus.OK);
+		log.info("In GetAll");
+		return new ResponseEntity<ResponseDTO>(HttpStatus.OK);
 	}
 	
 	@PostMapping("/")
-	public ResponseEntity<String> add(@RequestBody Contact contact){
+	public ResponseEntity<ResponseDTO> add(@RequestBody Contact contact){
 		
-		return new ResponseEntity<String>(HttpStatus.OK);
+		log.info("In Add");
+		return new ResponseEntity<ResponseDTO>(HttpStatus.OK);
 	}
 
 	@PutMapping("/update/{id}")
-	public ResponseEntity<String> update(@RequestBody Contact contact, @PathVariable("id") int id){
-		
-		return new ResponseEntity<String>(HttpStatus.OK);
+	public ResponseEntity<ResponseDTO> update(@RequestBody Contact contact, @PathVariable("id") int id){
+
+		log.info("In Update");
+		return new ResponseEntity<ResponseDTO>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> delete(@RequestBody Contact contact, @PathVariable("id") int id){
+	public ResponseEntity<ResponseDTO> delete(@RequestBody Contact contact, @PathVariable("id") int id){
 		
-		return new ResponseEntity<String>(HttpStatus.OK);
+		log.info("In Delete");
+		return new ResponseEntity<ResponseDTO>(HttpStatus.OK);
 	}
 }
