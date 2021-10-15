@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,9 +12,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entities.Contact;
+import com.example.demo.service.AddressbookService;
 
 @RestController
 public class AddressbookController {
+	
+	@Autowired
+	AddressbookService addressbookService;
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<String> getById( @PathVariable("id") int id ){

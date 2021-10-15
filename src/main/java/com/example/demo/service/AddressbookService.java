@@ -1,5 +1,8 @@
 package com.example.demo.service;
 
-public class AddressbookService {
+import org.springframework.stereotype.Service;
 
+@Service
+public class AddressbookService {
+	
 }
