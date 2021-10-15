@@ -26,36 +26,36 @@ public class AddressbookController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<ResponseDTO> getById( @PathVariable("id") int id ){
-		
+		ResponseDTO responseDTO = new ResponseDTO("By ID: ", addressbookService.getById(id));
 		log.info("In GetBYId");
-		return new ResponseEntity<ResponseDTO>(HttpStatus.OK);
+		return new ResponseEntity<ResponseDTO>( responseDTO , HttpStatus.OK);
 	}
 	
 	@GetMapping("/")
 	public ResponseEntity<ResponseDTO> getAll(){
-		
+		ResponseDTO responseDTO = new ResponseDTO("By ID: ", addressbookService.getAll());
 		log.info("In GetAll");
-		return new ResponseEntity<ResponseDTO>(HttpStatus.OK);
+		return new ResponseEntity<ResponseDTO>( responseDTO , HttpStatus.OK);
 	}
 	
 	@PostMapping("/")
 	public ResponseEntity<ResponseDTO> add(@RequestBody Contact contact){
-		
+		ResponseDTO responseDTO = new ResponseDTO("By ID: ", addressbookService.add(contact));
 		log.info("In Add");
-		return new ResponseEntity<ResponseDTO>(HttpStatus.OK);
+		return new ResponseEntity<ResponseDTO>( responseDTO , HttpStatus.OK);
 	}
 
 	@PutMapping("/update/{id}")
 	public ResponseEntity<ResponseDTO> update(@RequestBody Contact contact, @PathVariable("id") int id){
-
+		ResponseDTO responseDTO = new ResponseDTO("By ID: ", addressbookService.update(id, contact));
 		log.info("In Update");
-		return new ResponseEntity<ResponseDTO>(HttpStatus.OK);
+		return new ResponseEntity<ResponseDTO>( responseDTO , HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<ResponseDTO> delete(@RequestBody Contact contact, @PathVariable("id") int id){
-		
+		ResponseDTO responseDTO = new ResponseDTO("By ID: ", addressbookService.delete(id));
 		log.info("In Delete");
-		return new ResponseEntity<ResponseDTO>(HttpStatus.OK);
+		return new ResponseEntity<ResponseDTO>( responseDTO , HttpStatus.OK);
 	}
 }
